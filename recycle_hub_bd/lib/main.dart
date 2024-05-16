@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recycle_hub_bd/scrap.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,6 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Recycle Hub BD',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -22,77 +24,105 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  final _formKey = GlobalKey<FormState>();
-  late String _name, _address, _phoneNo, _whatsappNo;
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  // late AnimationController _scaleController;
+  // late Animatable<double> _scaleAnimation;
+
+  // bool hide = false;
+
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+
+  //   _scaleController = AnimationController(
+  //       vsync: this, duration: const Duration(microseconds: 500));
+
+  //   _scaleAnimation = Tween<double>(begin: 1.0, end: 30.0)
+  //       .animate(_scaleController)
+  //       .addStatusListener((status) {
+  //     if (status == AnimationStatus.completed) {
+  //       Navigator.push(context,
+  //           PageTransition(child: ScrapPage(), type: PageTransitionType.fade));
+  //     }
+  //   }) as Animatable<double>;
+  // }
+
+  // final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Recycle Hub BD'),
+        body: Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage('assets/images/cover.jpg'), fit: BoxFit.cover),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Form(
-          key: _formKey,
+      child: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(begin: Alignment.bottomRight, colors: [
+          Colors.black.withOpacity(.9),
+          Colors.black.withOpacity(.3),
+        ])),
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
           child: Column(
-            children: [
-              TextFormField(
-                decoration: const InputDecoration(labelText: 'Name'),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter your name';
-                  }
-                  return null;
-                },
-                onSaved: (value) => _name = value!,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Text(
+                "Recycle Hub BD",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold),
               ),
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Address'),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter your address';
-                  }
-                  return null;
-                },
-                onSaved: (value) => _address = value!,
+              SizedBox(
+                height: 10,
               ),
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Phone No'),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter your phone number';
-                  }
-                  return null;
-                },
-                onSaved: (value) => _phoneNo = value!,
+              Text(
+                "Revolutionizing Recycling, Reshaping Bangladesh",
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.white),
               ),
-              TextFormField(
-                decoration: InputDecoration(labelText: 'WhatsApp No'),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter your WhatsApp number';
-                  }
-                  return null;
-                },
-                onSaved: (value) => _whatsappNo = value!,
+              SizedBox(
+                height: 70,
               ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    _formKey.currentState!.save();
-                    // Call API or perform action with the form data
-                    print('Form submitted: $_name, $_address, $_phoneNo, $_whatsappNo');
-                  }
+              InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ScrapPage()));
+                  setState(() {
+                    // hide = true;
+                  });
+                  // _scaleController.forward();
                 },
-                child: Text('Schedule Pickup'),
+                // child: AnimatedBuilder(
+                //   animation: _scaleController,
+                //   builder: (context, child) => Transform.scale(
+                // scale: _scaleAnimation.value,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Center(
+                      child: Text(
+                    "Get Start",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0),
+                  )),
+                ),
               ),
+              SizedBox(
+                height: 50,
+              )
             ],
           ),
         ),
       ),
-    );
+    ));
   }
 }
