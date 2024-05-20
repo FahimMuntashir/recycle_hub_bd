@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recycle_hub_bd/books_page.dart';
+import 'package:recycle_hub_bd/ewaste_page.dart';
+import 'package:recycle_hub_bd/plastic_page.dart';
 
 class ScrapPage extends StatefulWidget {
   const ScrapPage({super.key});
@@ -51,7 +53,7 @@ class _ScrapPageState extends State<ScrapPage>
               height: 15.0,
             ),
             Text(
-              "Scraps List",
+              "Scrap List",
               style: TextStyle(
                   // fontFamily: 'Varela',
                   fontSize: 42.0,
@@ -78,7 +80,7 @@ class _ScrapPageState extends State<ScrapPage>
                 ),
                 Tab(
                   child: Text(
-                    'Newspaper',
+                    'E-Waste',
                     style: TextStyle(
                       fontSize: 21.0,
                     ),
@@ -86,7 +88,7 @@ class _ScrapPageState extends State<ScrapPage>
                 ),
                 Tab(
                   child: Text(
-                    'E-Waste',
+                    'Plastic',
                     style: TextStyle(
                       fontSize: 21.0,
                     ),
@@ -99,8 +101,8 @@ class _ScrapPageState extends State<ScrapPage>
                 width: double.infinity,
                 child: TabBarView(controller: _tabController, children: [
                   BooksPage(),
-                  BooksPage(),
-                  BooksPage(),
+                  EWastePage(),
+                  PlasticPage(),
                 ]))
           ],
         ));

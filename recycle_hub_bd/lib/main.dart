@@ -1,7 +1,24 @@
+// import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:recycle_hub_bd/scrap.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Supabase.initialize(
+      url: 'https://gbkhkohszudhslolqdaj.supabase.co',
+      anonKey:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdia2hrb2hzenVkaHNsb2xxZGFqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTYxNDIzOTcsImV4cCI6MjAzMTcxODM5N30.-GkEu1c_O2mQlNai_mw0UGlBYDx_ArsngCzjb4px6Xo');
+
+  // await Firebase.initializeApp(
+  // options: FirebaseOptions(
+  //     apiKey: 'AIzaSyBjNWKe7ijBzFI6xEOGnklUBC5CEj8ePys',
+  //     appId: '1:650601995318:android:aa09b6e13a564d7fc50c97',
+  //     messagingSenderId: '650601995318',
+  //     projectId: 'recyclehubbd-6dc16')
+  // );
+
   runApp(MyApp());
 }
 
@@ -110,7 +127,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   ),
                   child: Center(
                       child: Text(
-                    "Get Start",
+                    "Get Started",
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0),
                   )),

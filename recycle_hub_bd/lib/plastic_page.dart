@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:recycle_hub_bd/pickup_details.dart';
 // import 'package:recycle_hub_bd/pickup_details.dart';
 
-class BooksPage extends StatelessWidget {
-  const BooksPage({super.key});
+class PlasticPage extends StatelessWidget {
+  const PlasticPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +23,10 @@ class BooksPage extends StatelessWidget {
                 mainAxisSpacing: 15.0,
                 childAspectRatio: 0.8,
                 children: <Widget>[
-                  _buildCard('Copies/Books', 'BDT 14/KG',
-                      'assets/images/books.jpg', false, false, context),
-                  _buildCard('Newspaper', 'BDT 15/kg',
-                      'assets/images/newspaper.jpg', false, false, context),
-                  _buildCard('Cardboard', 'BDT 7/kg',
-                      'assets/images/cardboard.jpg', false, false, context),
-                  _buildCard('Mill Board', 'BDT 5/kg',
-                      'assets/images/millboard.jpg', false, false, context)
+                  _buildCard('Plastic', 'BDT 20/KG',
+                      'assets/images/plastic.jpeg', false, false, context),
+                  _buildCard('Mix Plastic', 'BDT 15/kg',
+                      'assets/images/mixplastic.jpeg', false, false, context),
                 ],
               )),
           SizedBox(height: 15.0)
