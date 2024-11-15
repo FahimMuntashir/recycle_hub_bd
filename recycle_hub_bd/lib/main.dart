@@ -135,7 +135,40 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
               SizedBox(
                 height: 50,
-              )
+              ),
+
+
+              InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ScrapPage()));
+                  setState(() {
+                    // hide = true;
+                  });
+                  // _scaleController.forward();
+                },
+                // child: AnimatedBuilder(
+                //   animation: _scaleController,
+                //   builder: (context, child) => Transform.scale(
+                // scale: _scaleAnimation.value,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Center(
+                      child: Text(
+                    "Get Started",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0),
+                  )),
+                ),
+              ),
+
+
+              SizedBox(
+                height: 50,
+              ),
             ],
           ),
         ),

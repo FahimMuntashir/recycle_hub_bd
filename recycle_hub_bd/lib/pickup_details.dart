@@ -53,22 +53,24 @@ class _PickupDetailsState extends State<PickupDetails> {
   final TextEditingController userAdditionInfoController =
       TextEditingController();
 
+  String temp = "";
   Future<void> insertRecord() async {
     if (userAdditionInfoController.text != "") {
       try {
-        String uri = "http://10.0.0.2/recycle_api/insert_record.php";
+        String uri = "http://172.20.232.97/recycle_api/insert_record.php";
         var res = await http.post(Uri.parse(uri), body: {
           "name": userNameController.text,
           "phoneNumber": userPhoneNumberController.text,
           "address": userAddressController.text,
           "email": userEmailController.text,
           "pickupDate": userPickupDateController.text,
-          "additionalInformation": userPickupDateController.text
+          "additionalInformation": userAdditionInfoController.text
         });
 
         var response = jsonDecode(res.body);
         if (response["success"] == "true") {
           print("record inserted");
+          temp = "record inserted";
         } else {
           print("some issues occurs");
         }
@@ -279,6 +281,7 @@ class _PickupDetailsState extends State<PickupDetails> {
                 Divider(),
                 if (_isLoading) CircularProgressIndicator(),
                 Text(_status),
+                Text(temp),
               ],
             ),
           ),
